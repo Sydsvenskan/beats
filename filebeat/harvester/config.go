@@ -43,6 +43,7 @@ type harvesterConfig struct {
 	IncludeLines  []match.Matcher         `config:"include_lines"`
 	MaxBytes      int                     `config:"max_bytes" validate:"min=0,nonzero"`
 	Multiline     *reader.MultilineConfig `config:"multiline"`
+	Docker        bool                    `config:"docker"`
 	JSON          *reader.JSONConfig      `config:"json"`
 }
 

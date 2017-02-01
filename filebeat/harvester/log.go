@@ -356,6 +356,10 @@ func (h *Harvester) newLogFileReader() (reader.Reader, error) {
 		return nil, err
 	}
 
+	if h.config.Docker {
+		r = reader.NewDockerJSONLog(r)
+	}
+
 	if h.config.JSON != nil {
 		r = reader.NewJSON(r, h.config.JSON)
 	}
